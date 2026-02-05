@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Dancing+Script:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Romantic Valentine Palette */
+    --background: 350 100% 98%;
+    --foreground: 350 30% 25%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 350 30% 25%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 350 30% 25%;
+
+    --primary: 350 80% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 330 60% 95%;
+    --secondary-foreground: 350 30% 25%;
+
+    --muted: 340 40% 96%;
+    --muted-foreground: 350 20% 50%;
+
+    --accent: 280 50% 85%;
+    --accent-foreground: 280 40% 30%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 350 30% 90%;
+    --input: 350 30% 90%;
+    --ring: 350 80% 65%;
+
+    --radius: 1rem;
+
+    /* Custom romantic colors */
+    --rose: 350 80% 65%;
+    --rose-light: 350 100% 95%;
+    --rose-dark: 350 70% 45%;
+    --blush: 10 60% 90%;
+    --lavender: 280 50% 85%;
+    --lavender-light: 280 60% 95%;
+    --cream: 40 60% 97%;
+    --coral: 15 80% 75%;
+    --gold: 45 80% 60%;
+
+    /* Gradients */
+    --gradient-romantic: linear-gradient(135deg, hsl(350, 100%, 95%) 0%, hsl(280, 60%, 95%) 50%, hsl(350, 80%, 92%) 100%);
+    --gradient-sunset: linear-gradient(180deg, hsl(350, 100%, 97%) 0%, hsl(15, 80%, 92%) 100%);
+    --gradient-dreamy: linear-gradient(135deg, hsl(280, 50%, 92%) 0%, hsl(350, 80%, 90%) 100%);
+    --gradient-heart: radial-gradient(circle, hsl(350, 80%, 70%) 0%, hsl(350, 70%, 55%) 100%);
+  }
+
+  .dark {
+    --background: 350 30% 8%;
+    --foreground: 350 20% 95%;
+
+    --card: 350 30% 12%;
+    --card-foreground: 350 20% 95%;
+
+    --popover: 350 30% 12%;
+    --popover-foreground: 350 20% 95%;
+
+    --primary: 350 70% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 350 30% 18%;
+    --secondary-foreground: 350 20% 95%;
+
+    --muted: 350 30% 18%;
+    --muted-foreground: 350 20% 65%;
+
+    --accent: 280 40% 30%;
+    --accent-foreground: 280 50% 85%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 350 30% 20%;
+    --input: 350 30% 20%;
+    --ring: 350 70% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3 {
+    @apply font-script;
+  }
+
+  p {
+    @apply font-body;
+  }
+}
+
+@layer utilities {
+  .text-gradient-romantic {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(350, 80%, 55%) 0%, hsl(280, 50%, 60%) 100%);
+  }
+
+  .bg-romantic {
+    background: var(--gradient-romantic);
+  }
+
+  .bg-sunset {
+    background: var(--gradient-sunset);
+  }
+
+  .bg-dreamy {
+    background: var(--gradient-dreamy);
+  }
+
+  .shadow-romantic {
+    box-shadow: 0 4px 30px hsla(350, 80%, 65%, 0.2), 0 2px 10px hsla(350, 80%, 65%, 0.1);
+  }
+
+  .shadow-soft {
+    box-shadow: 0 10px 40px hsla(350, 50%, 50%, 0.1);
+  }
+
+  .glass-card {
+    @apply backdrop-blur-md bg-white/70 border border-white/50;
+  }
+}
+
+@layer components {
+  .love-note {
+    @apply font-serif text-lg leading-relaxed tracking-wide;
+  }
+
+  .section-heading {
+    @apply font-script text-3xl md:text-4xl text-rose mb-8 text-center;
+  }
+}
+
+/* Floating hearts animation */
+@keyframes float-heart {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-float-heart {
+  animation: float-heart 3s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, hsla(350, 80%, 80%, 0.3), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
